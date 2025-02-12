@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Reader</title>
+    <!-- CSS --->
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class = "elements">
+        <img src = "static/pdf.png" width="180px" height="180px">
+        <h1>Your PDF Reader!</h1>
+        <form action="{{ url_for('upload_pdf') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="application/pdf" required>
+            <button type="submit" onclick="alert('Done Uploading');">Upload PDF</button>
+        </form>
+    </div>
+    {% if val %}
+        <p>Done Reading...</p>
+    {% endif %}
+</body>
+</html>
