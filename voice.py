@@ -13,12 +13,12 @@ def voice_generate(page):
 
     response = requests.get(url = "http://api.voicerss.org",params = params)
 
-    with open("tmp/audio_file.wav",mode = "wb") as file:
+    with open("/tmp/audio_file.wav",mode = "wb") as file:
         file.write(response.content)
 
     # Play the WAV file
     pygame.mixer.init()
-    pygame.mixer.music.load("tmp/audio_file.wav")
+    pygame.mixer.music.load("/tmp/audio_file.wav")
     pygame.mixer.music.play()
 
     # Keep script running until audio finishes playing
@@ -29,5 +29,5 @@ def voice_generate(page):
     pygame.mixer.music.stop()
     pygame.mixer.quit()
 
-    os.remove("tmp/audio_file.wav")
+    os.remove("/tmp/audio_file.wav")
 
